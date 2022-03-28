@@ -9,6 +9,7 @@
 #include "Renderer.h"
 #include "VertexBuffer.h"
 #include "IndexBuffer.h"
+#include "VertexArray.h"
 
 //SHADERS
 struct ShaderProgramSource {
@@ -148,28 +149,29 @@ int main(void)
         2, 3, 0  //triangle #2
     };
 
-    unsigned int vao; //Vertex Array Object
-    GLCall(glGenVertexArrays(1, &vao)); //Generate Vertex Array
-    GLCall(glBindVertexArray(vao));     //Bind Vertex Array
-
     //VERTEX BUFFER - used to specify triangle coordinates
-    //**
-    unsigned int buffer;
-    unsigned bufferCount = 1;
     unsigned int positionsVertexCount = 4;
     unsigned numbersPerVertex = 2;
     unsigned int positionsSize = positionsVertexCount * numbersPerVertex * sizeof(float);
-    //GLCall(glGenBuffers(bufferCount, &buffer)); //arg1: Number of buffers to generate. arg2: Location where buffers will be stored
-    //GLCall(glBindBuffer(GL_ARRAY_BUFFER, buffer)); //arg1: defines the purpose, or how buffer will be used. The currently bound buffer is considered to be the "selected" buffer
-    //GLCall(glBufferData(GL_ARRAY_BUFFER, positionsSize, positions, GL_STATIC_DRAW)); //links data(positions[]) to the currently bound buffer
     VertexBuffer vb(positions, positionsSize);
 
+    //VERTEX ARRAY - defines bytes layout
+    unsigned int vao; //Vertex Array Object
+    GLCall(glGenVertexArrays(1, &vao)); //Generate Vertex Array
+    GLCall(glBindVertexArray(vao));     //Bind Vertex Array
+    VertexArray va;
+    VertexBufferLayout layout;
+    layout.Push<float>(2);
+    va.AddBuffer(vb, layout);
+
+
+
     //TELL OPENGL OUR LAYOUT
-    int startingIndex = 0;
-    bool normalized = false;
-    int stride = sizeof(float) * numbersPerVertex;
-    GLCall(glEnableVertexAttribArray(0)); //Enables the selected buffer. arg1: the index that you want to enable.
-    GLCall(glVertexAttribPointer(startingIndex, numbersPerVertex, GL_FLOAT, normalized, stride, 0)); //defines an array of generic vertex attribute data //arg1: starting index. arg2: how many numbers are in 1 vertex. arg3: type of data. arg4: true = normalized (0 < x < 1), false = scalar (0 < x < 255). arg5: stride: number of bytes for each vertex. arg6: wtf
+    //int startingIndex = 0;
+    //bool normalized = false;
+    //int stride = sizeof(float) * numbersPerVertex;
+    //GLCall(glEnableVertexAttribArray(0)); //Enables the selected buffer. arg1: the index that you want to enable.
+    //GLCall(glVertexAttribPointer(startingIndex, numbersPerVertex, GL_FLOAT, normalized, stride, 0)); //defines an array of generic vertex attribute data //arg1: starting index. arg2: how many numbers are in 1 vertex. arg3: type of data. arg4: true = normalized (0 < x < 1), false = scalar (0 < x < 255). arg5: stride: number of bytes for each vertex. arg6: wtf
 
     //INDEX BUFFER - used to index into our vertex buffer
     unsigned int indicesVertexCount = 6;
@@ -205,7 +207,8 @@ int main(void)
 
         //Code is replaced by Vertex Array
         GLCall(glBindVertexArray(vao)); //notice, you are not binding your vertex buffer.
-        
+        va.Bind();
+
         //BIND
         ib.Bind();
 
