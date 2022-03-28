@@ -5,8 +5,6 @@ VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "openGL_officialWebsite", "openGL_officialWebsite\openGL_officialWebsite.vcxproj", "{57B846F5-3ABF-4F3D-B100-5E8224847A0B}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "openGL_BrianWill", "openGL_BrianWill\openGL_BrianWill.vcxproj", "{FE42D879-F923-43A5-85FA-2E64DB5F5AC1}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "openGL_TheCherno", "openGL_TheCherno\openGL_TheCherno.vcxproj", "{79711E66-FAF8-43F6-82A1-CF2A147492B6}"
 EndProject
 Global
@@ -25,14 +23,6 @@ Global
 		{57B846F5-3ABF-4F3D-B100-5E8224847A0B}.Release|x64.Build.0 = Release|x64
 		{57B846F5-3ABF-4F3D-B100-5E8224847A0B}.Release|x86.ActiveCfg = Release|Win32
 		{57B846F5-3ABF-4F3D-B100-5E8224847A0B}.Release|x86.Build.0 = Release|Win32
-		{FE42D879-F923-43A5-85FA-2E64DB5F5AC1}.Debug|x64.ActiveCfg = Debug|x64
-		{FE42D879-F923-43A5-85FA-2E64DB5F5AC1}.Debug|x64.Build.0 = Debug|x64
-		{FE42D879-F923-43A5-85FA-2E64DB5F5AC1}.Debug|x86.ActiveCfg = Debug|Win32
-		{FE42D879-F923-43A5-85FA-2E64DB5F5AC1}.Debug|x86.Build.0 = Debug|Win32
-		{FE42D879-F923-43A5-85FA-2E64DB5F5AC1}.Release|x64.ActiveCfg = Release|x64
-		{FE42D879-F923-43A5-85FA-2E64DB5F5AC1}.Release|x64.Build.0 = Release|x64
-		{FE42D879-F923-43A5-85FA-2E64DB5F5AC1}.Release|x86.ActiveCfg = Release|Win32
-		{FE42D879-F923-43A5-85FA-2E64DB5F5AC1}.Release|x86.Build.0 = Release|Win32
 		{79711E66-FAF8-43F6-82A1-CF2A147492B6}.Debug|x64.ActiveCfg = Debug|x64
 		{79711E66-FAF8-43F6-82A1-CF2A147492B6}.Debug|x64.Build.0 = Debug|x64
 		{79711E66-FAF8-43F6-82A1-CF2A147492B6}.Debug|x86.ActiveCfg = Debug|Win32
